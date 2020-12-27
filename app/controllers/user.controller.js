@@ -1,15 +1,15 @@
-exports.allAccess = (req, res) => {
-  res.status(200).send("Public Content.");
+exports.allPublicAccess = (req, res) => {
+  res.status(200).send("This is the Public HomePage.");
 };
 
-exports.userBoard = (req, res) => {
-  res.status(200).send("User Content.");
+exports.userDashboard = (req, res) => {
+  res.status(200).send("This is the User Page and is a private page.");
 };
 
-exports.adminBoard = (req, res) => {
-  res.status(200).send("Admin Content.");
+exports.adminDashboard = (req, res) => {
+  res.status(200).send("This is the Admin Page and is a private page.");
 };
 
-exports.moderatorBoard = (req, res) => {
-  res.status(200).send("Moderator Content.");
+exports.moderatorDashboard = (req, res) => {
+  res.status(200).send("This is the Moderator Page and is a private page.");
 };

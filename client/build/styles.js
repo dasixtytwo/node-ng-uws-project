@@ -58,8 +58,8 @@ ___CSS_LOADER_EXPORT___.push([module.i, "/* You can add global styles to this fi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Workspace\internetScripting\project\clientApp\src\styles.scss */"+EN/");
-module.exports = __webpack_require__(/*! D:\Workspace\internetScripting\project\clientApp\node_modules\bootstrap\dist\css\bootstrap.min.css */"q4sD");
+__webpack_require__(/*! D:\Workspace\internetScripting\ng-project\clientApp\src\styles.scss */"+EN/");
+module.exports = __webpack_require__(/*! D:\Workspace\internetScripting\ng-project\clientApp\node_modules\bootstrap\dist\css\bootstrap.min.css */"q4sD");
 
 
 /***/ }),

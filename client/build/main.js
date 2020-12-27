@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Workspace\internetScripting\project\clientApp\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! D:\Workspace\internetScripting\ng-project\clientApp\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -430,14 +430,14 @@ __webpack_require__.r(__webpack_exports__);
 function AppComponent_li_8_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Admin Board");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Admin Dashboard");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function AppComponent_li_9_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Moderator Board");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Moderator Dashboard");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
@@ -484,16 +484,16 @@ class AppComponent {
     constructor(tokenStorageService) {
         this.tokenStorageService = tokenStorageService;
         this.isLoggedIn = false;
-        this.showAdminBoard = false;
-        this.showModeratorBoard = false;
+        this.showAdminDashboard = false;
+        this.showModeratorDashboard = false;
     }
     ngOnInit() {
         this.isLoggedIn = !!this.tokenStorageService.getToken();
         if (this.isLoggedIn) {
             const user = this.tokenStorageService.getUser();
             this.roles = user.roles;
-            this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-            this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+            this.showAdminDashboard = this.roles.includes('ROLE_ADMIN');
+            this.showModeratorDashboard = this.roles.includes('ROLE_MODERATOR');
             this.username = user.username;
         }
     }
@@ -530,9 +530,9 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showAdminBoard);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showAdminDashboard);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showModeratorBoard);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showModeratorDashboard);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLoggedIn);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
@@ -572,7 +572,7 @@ class DashboardUserComponent {
         this.userService = userService;
     }
     ngOnInit() {
-        this.userService.getUserBoard().subscribe(data => {
+        this.userService.getUserDashboard().subscribe(data => {
             this.content = data;
         }, err => {
             this.content = JSON.parse(err.error).message;
@@ -627,13 +627,13 @@ class UserService {
     getPublicContent() {
         return this.http.get(API_URL + '/test/all', { responseType: 'text' });
     }
-    getUserBoard() {
+    getUserDashboard() {
         return this.http.get(API_URL + '/test/user', { responseType: 'text' });
     }
-    getModeratorBoard() {
+    getModeratordashboard() {
         return this.http.get(API_URL + '/test/mod', { responseType: 'text' });
     }
-    getAdminBoard() {
+    getAdminDashboard() {
         return this.http.get(API_URL + '/test/admin', { responseType: 'text' });
     }
 }
@@ -852,7 +852,7 @@ class DashboardAdminComponent {
         this.userService = userService;
     }
     ngOnInit() {
-        this.userService.getAdminBoard().subscribe(data => {
+        this.userService.getAdminDashboard().subscribe(data => {
             this.content = data;
         }, err => {
             this.content = JSON.parse(err.error).message;
@@ -950,7 +950,7 @@ class DashboardModeratorComponent {
         this.userService = userService;
     }
     ngOnInit() {
-        this.userService.getModeratorBoard().subscribe(data => {
+        this.userService.getModeratordashboard().subscribe(data => {
             this.content = data;
         }, err => {
             this.content = JSON.parse(err.error).message;
