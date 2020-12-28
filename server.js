@@ -38,9 +38,9 @@ db.mongoose
   });
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, "client/build"))); // Provide static directory for frontend, like CSS, JS
+app.use(express.static(path.join(__dirname, "/client/build"))); // Provide static directory for frontend, like CSS, JS
 // simple route
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
