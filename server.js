@@ -2,10 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
-const path = require('path'); // NodeJS Package for file paths
 
 const app = express();
-const _app_folder = 'clientApp/dist/clientApp';
 
 var corsOptions = {
   origin: "http://localhost:4200"
@@ -37,16 +35,17 @@ db.mongoose
     process.exit();
   });
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "/client/build"))); // Provide static directory for frontend, like CSS, JS
-// simple route
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
-
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+
+// Serve static files from the React app
+app.use(express.static('./client/build')) // Provide static directory for frontend, like CSS, JS
+
+// simple route
+app.get("/*", function(req, res) {
+  res.sendFile('index.html', {root: 'client/build/'});
+});
 
 // set port, listen for requests
 const PORT = process.env.PORT || 4000;
